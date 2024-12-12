@@ -4,14 +4,14 @@ TTS player management client tool
 # Work Flow
    1. Create TTS player with below command:
       TTSPlayerManagementClient.exe createPlayer --region eastus --subscriptionKey YourSpeechResourceKey --config xx
-      Config file sample: [CreatePlayerConfigSample.json](TTSPlayerManagementClient/Config/CreatePlayerConfigSample.json)
+      Config file sample: [CreatePlayerConfigSample.json](TTSPlayerManagementClient/TTSPlayerManagementClient/Config/CreatePlayerConfigSample.json)
    2. List all players:
       TTSPlayerManagementClient.exe list --region eastus --subscriptionKey YourSpeechResourceKey
    3. Query player detail by ID:
       TTSPlayerManagementClient.exe get --region eastus --subscriptionKey YourSpeechResourceKey --id xx
    4. Create javascript client demo:
       TTSPlayerManagementClient.exe get createDemo --region eastus --subscriptionKey YourSpeechResourceKey --config xx --targetDir YourLocalDir
-      Config file sample: [CreateDemoConfigSample.json](TTSPlayerManagementClient/Config/CreateDemoConfigSample.json)
+      Config file sample: [CreateDemoConfigSample.json](TTSPlayerManagementClient/TTSPlayerManagementClient/Config/CreateDemoConfigSample.json)
       Tool will prompt your demo page can be found here:
          YourLocalDir\client-sample\flat.html
    5. Delete the player if you don't need anymore.
@@ -30,8 +30,8 @@ TTS player management client tool
    | List all TTS players. | list --region eastus --subscriptionKey YourSpeechResourceKey |
    | Get TTS player by ID. | get --region eastus --subscriptionKey YourSpeechResourceKey --id xx |
    | Delete TTS player by ID. | delete --region eastus --subscriptionKey YourSpeechResourceKey --id xx |
-   | Create TTS Player by config file. | createPlayer --region eastus --subscriptionKey YourSpeechResourceKey --config "[CreatePlayerConfigSample.json](TTSPlayerManagementClient/Config/CreatePlayerConfigSample.json)" |
-   | Create TTS Player javascript client demo. | createDemo --region eastus --subscriptionKey YourSpeechResourceKey --config "[CreateDemoConfigSample.json](TTSPlayerManagementClient/Config/CreateDemoConfigSample.json)" --targetDir xx |
+   | Create TTS Player by config file. | createPlayer --region eastus --subscriptionKey YourSpeechResourceKey --config "[CreatePlayerConfigSample.json](TTSPlayerManagementClient/TTSPlayerManagementClient/Config/CreatePlayerConfigSample.json)" |
+   | Create TTS Player javascript client demo. | createDemo --region eastus --subscriptionKey YourSpeechResourceKey --config "[CreateDemoConfigSample.json](TTSPlayerManagementClient/TTSPlayerManagementClient/Config/CreateDemoConfigSample.json)" --targetDir xx |
 
 # Supported regions
    https://learn.microsoft.com/en-us/azure/ai-services/speech-service/regions
