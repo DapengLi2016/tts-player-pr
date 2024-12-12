@@ -68,9 +68,9 @@ TTS player management client tool
 | Description | TTS player description |
 | TtsOutputFormat | TTS output format |
 | PredefinedUrlPrefix | Your website root path |
-| AllowedHtmlXPathList | Predefined html XPath allowed list, only the XPath in this list can be used in synthesis API requset |
-| AllowedVoiceNameList | Predefined voice name allowed list, only the voice name in this list can be used in synthesis API requset |
-| AllowedVoiceStyleList | Predefined voice style allowed list, only the style in this list can be used in synthesis API requset |
+| AllowedHtmlXPathList | Predefined html XPath allowed list, maximum 10 supported, only the XPath in this list can be used in synthesis API requset |
+| AllowedVoiceNameList | Predefined voice name allowed list, maximum 100 supported, only the voice name in this list can be used in synthesis API requset, please go to [Voice Gallery] in [speech portal](https://speech.microsoft.com/) to get voice name. |
+| AllowedVoiceStyleList | Predefined voice style allowed list, maximum 100 supported, only the style in this list can be used in synthesis API requset, please go to [Voice Gallery] in [speech portal](https://speech.microsoft.com/) to get supported styles of the voice. |
 
 ## Supported TtsOutputFormat
 For now, only support: audio-24khz-96kbitrate-mono-mp3
