@@ -8,6 +8,7 @@ namespace Microsoft.SpeechServices.TTSPlayerManagementClient;
 using CommandLine;
 using CommandLine.Text;
 using Microsoft.Speech.TTSPlayer.HttpClient;
+using Microsoft.SpeechServices.Common;
 using Microsoft.SpeechServices.CommonLib;
 using Microsoft.SpeechServices.Cris.Http;
 using Microsoft.SpeechServices.TTSPlayerLib;
@@ -87,6 +88,38 @@ public class Program
                     break;
                 }
 
+            case CreatePlayerOptions createPlayerOptions:
+                {
+                    if (!File.Exists(createPlayerOptions.Config))
+                    {
+                        throw new FileNotFoundException(createPlayerOptions.Config);
+                    }
+
+                    var content = await File.ReadAllTextAsync(
+                        createPlayerOptions.Config,
+                        Encoding.UTF8).ConfigureAwait(false);
+                    if (string.IsNullOrWhiteSpace(content))
+                    {
+                        throw new ArgumentNullException(nameof(content));
+                    }
+
+                    var config = JsonConvert.DeserializeObject<TTSWebPagePlayerCreate>(content);
+                    config.Properties.ParseKind = TTSWebPagePlayerContentParseKind.WithXPathsFromHTML;
+
+                    var player = await translationClient.CreateTTSPlayerAsync(config).ConfigureAwait(false);
+
+                    Console.WriteLine(JsonConvert.SerializeObject(
+                        player,
+                        Formatting.Indented,
+                        CustomContractResolver.WriterSettings));
+
+                    player = await translationClient.QueryTaskByIdUntilTerminatedAsync<TTSWebPagePlayer>(
+                        id: Guid.Parse(player.Id),
+                        additionalHeaders: null,
+                        printFirstQueryResult: false).ConfigureAwait(false);
+                    break;
+                }
+
             case CreateDemoOptions createDemoOptions:
                 {
                     if (!File.Exists(createDemoOptions.Config))
@@ -144,6 +177,7 @@ public class Program
                         region: createDemoOptions.Region,
                         sourceLocation: config.ContentSourceLocation,
                         voice: config.VoiceName,
+                        style: config.VoiceStyle,
                         xPaths: config.HtmlXPathList,
                         targetDir: createDemoOptions.TargetDir).ConfigureAwait(false);
                     Console.WriteLine($"Player created in:");
@@ -154,35 +188,6 @@ public class Program
                     break;
                 }
 
-            case CreatePlayerOptions createPlayerOptions:
-                {
-                    if (!File.Exists(createPlayerOptions.Config))
-                    {
-                        throw new FileNotFoundException(createPlayerOptions.Config);
-                    }
-
-                    var content = await File.ReadAllTextAsync(
-                        createPlayerOptions.Config,
-                        Encoding.UTF8).ConfigureAwait(false);
-                    if (string.IsNullOrWhiteSpace(content))
-                    {
-                        throw new ArgumentNullException(nameof(content));
-                    }
-
-                    var config = JsonConvert.DeserializeObject<TTSWebPagePlayerCreate>(content);
-                    var player = await translationClient.CreateTTSPlayerAsync(config).ConfigureAwait(false);
-
-                    Console.WriteLine(JsonConvert.SerializeObject(
-                        player,
-                        Formatting.Indented,
-                        CustomContractResolver.WriterSettings));
-
-                    player = await translationClient.QueryTaskByIdUntilTerminatedAsync<TTSWebPagePlayer>(
-                        id: Guid.Parse(player.Id),
-                        additionalHeaders: null,
-                        printFirstQueryResult: false).ConfigureAwait(false);
-                    break;
-                }
             default:
                 throw new NotSupportedException(options.ToString());
         }

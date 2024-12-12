@@ -13,6 +13,7 @@ public static class TTSPlayerConstant
         public const string Region = nameof(Region);
         public const string SourceLocation = nameof(SourceLocation);
         public const string Voice = nameof(Voice);
+        public const string Style = nameof(Style);
         public const string XPaths = nameof(XPaths);
     }
 }

@@ -20,6 +20,7 @@ public static class JavascriptDemoHelper
         string region,
         string sourceLocation,
         string voice,
+        string style,
         IList<string> xPaths,
         string targetDir)
     {
@@ -51,6 +52,12 @@ public static class JavascriptDemoHelper
         content = content.Replace($"[{TTSPlayerConstant.ClientDemoPlaceholders.Region}]", region);
         content = content.Replace($"[{TTSPlayerConstant.ClientDemoPlaceholders.SourceLocation}]", sourceLocation);
         content = content.Replace($"[{TTSPlayerConstant.ClientDemoPlaceholders.Voice}]", voice);
+        if (string.IsNullOrWhiteSpace(style))
+        {
+            style = "general";
+        }
+
+        content = content.Replace($"[{TTSPlayerConstant.ClientDemoPlaceholders.Style}]", style);
         var xPath = string.Join(',', xPaths.Select(x => $"\"{x}\""));
         content = content.Replace($"[{TTSPlayerConstant.ClientDemoPlaceholders.XPaths}]", $"[{xPath}]");
 

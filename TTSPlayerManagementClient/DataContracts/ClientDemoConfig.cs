@@ -16,5 +16,7 @@ public sealed class ClientDemoConfig
 
     public string VoiceName { get; set; }
 
+    public string VoiceStyle { get; set; }
+
     public List<string> HtmlXPathList { get; set; }
 }

@@ -2,6 +2,7 @@
   "PlayerId": "BD6C1EA6-1D4C-4AA5-93F3-B0C50425A3CD",
   "ContentSourceLocation": "xx/xx/",
   "VoiceName": "en-US-GuyNeural",
+  "VoiceStyle": "general",
   "HtmlXPathList": [
     "//div[contains(@class, 'MSTTSPlayerContentSource')]"
   ]
