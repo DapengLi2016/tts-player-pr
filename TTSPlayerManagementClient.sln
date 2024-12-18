@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSPlayerManagementClient", "TTSPlayerManagementClient\TTSPlayerManagementClient.csproj", "{4CFB0907-934B-4504-ACB9-2FF8470ACE16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{BF802833-8014-431A-B850-9DE5D38CDE7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLib.Public", "CommonLib.Public\CommonLib.Public.csproj", "{F55B9EF9-AFA3-4923-AFDD-5045A4D57198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTSPlayerLib.Common", "TTSPlayerLib.Common\TTSPlayerLib.Common.csproj", "{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CFB0907-934B-4504-ACB9-2FF8470ACE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CFB0907-934B-4504-ACB9-2FF8470ACE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CFB0907-934B-4504-ACB9-2FF8470ACE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CFB0907-934B-4504-ACB9-2FF8470ACE16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55B9EF9-AFA3-4923-AFDD-5045A4D57198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55B9EF9-AFA3-4923-AFDD-5045A4D57198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55B9EF9-AFA3-4923-AFDD-5045A4D57198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55B9EF9-AFA3-4923-AFDD-5045A4D57198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F55B9EF9-AFA3-4923-AFDD-5045A4D57198} = {BF802833-8014-431A-B850-9DE5D38CDE7B}
+		{84E48C95-EF1E-4E2D-9A45-5A87B4524E3A} = {BF802833-8014-431A-B850-9DE5D38CDE7B}
+	EndGlobalSection
+EndGlobal
