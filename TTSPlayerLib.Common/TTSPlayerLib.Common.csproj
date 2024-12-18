@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<AssemblyName>Microsoft.SpeechServices.TTSPlayerLib.Common</AssemblyName>
+		<RootNamespace>Microsoft.SpeechServices.TTSPlayerLib.Common</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="..\TTSPlayer.JavascriptClient\client-sample\flat.html" Link="JavascriptClient\client-sample\flat.html">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="..\TTSPlayer.JavascriptClient\tts-player\tts-player.css" Link="JavascriptClient\tts-player\tts-player.css">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\CommonLib.Public\CommonLib.Public.csproj" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <None Update="JavascriptDemo\client-sample\flat.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\azure-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\azure-text-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\listen-hover-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\listen-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\pause.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\images\play.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\tts-player.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="JavascriptDemo\tts-player\tts-player.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="JavascriptClient\client-sample\" />
+    <Folder Include="JavascriptClient\tts-player\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\azure-icon.svg" Link="JavascriptClient\tts-player\images\azure-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\azure-text-icon.svg" Link="JavascriptClient\tts-player\images\azure-text-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\listen-hover-icon.svg" Link="JavascriptClient\tts-player\images\listen-hover-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\listen-icon.svg" Link="JavascriptClient\tts-player\images\listen-icon.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\pause.svg" Link="JavascriptClient\tts-player\images\pause.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\images\play.svg" Link="JavascriptClient\tts-player\images\play.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\TTSPlayer.JavascriptClient\tts-player\tts-player.js" Link="JavascriptClient\tts-player\tts-player.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

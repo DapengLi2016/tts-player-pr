@@ -1,0 +1,41 @@
+<!--
+    Copyright (c) Microsoft. All rights reserved.
+    Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
+-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let ttsPlayerConfig = {
+            playerId: "[PlayerId]",
+            environment: "[APIEndpoint]",
+
+            // Player will be rendered under div element with ID: parentElement
+            playerParentDivId: "parentElement",
+            playerLibPath: "../tts-player"
+        }
+    </script>
+    <script src="../tts-player/tts-player.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../tts-player/tts-player.css" />
+    <script>
+        function onPageLoad() {
+            ttsPlayer(
+                {
+                    ttsPlayerConfig: ttsPlayerConfig,
+                    sourceLocation: '[SourceLocation]',
+                    voice: "[Voice]",
+                    style: "[Style]",
+                    isFlat: true,
+                    xPaths: [XPaths],
+                    isLogging: true
+                });
+        }
+    </script>
+</head>
+
+<body onload="onPageLoad()">
+    <div id="parentElement"></div>
+</body>
+
+</html>

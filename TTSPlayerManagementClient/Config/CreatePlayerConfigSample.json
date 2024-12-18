@@ -1,0 +1,19 @@
+{
+  "_comment": "TtsOutputFormat: only support AUDIO-24KHZ-96KBITRATE-MONO-MP3 before 2025-1-30",
+  "DisplayName": "TTSPlayer",
+  "Description": "Player for your website",
+  "TtsOutputFormat": "AUDIO-24KHZ-96KBITRATE-MONO-MP3",
+  "Properties": {
+    "PredefinedUrlPrefix": "https://www.microsoft.com/",
+    "AllowedHtmlXPathList": [
+      "//div[contains(@class, 'MSTTSPlayerContentSource')]"
+    ],
+    "AllowedVoiceNameList": [
+      "en-US-GuyNeural"
+    ],
+    "AllowedVoiceStyleList": [
+      "general",
+      "newscast"
+    ]
+  }
+}
