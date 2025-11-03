@@ -31,7 +31,7 @@ public class TTSPlayerClient : HttpClientBase
     {
         ArgumentNullException.ThrowIfNull(config);
 
-        var url = BuildBackendPathVersionRequestBase();
+        var url = await this.BuildRequestBaseAsync().ConfigureAwait(false);
 
         Console.WriteLine("Creating player:");
         Console.WriteLine($"{url.Url}");
@@ -46,8 +46,8 @@ public class TTSPlayerClient : HttpClientBase
 
     public async Task DeleteTTSPlayerAsync(Guid id)
     {
-        var url = BuildBackendPathVersionRequestBase()
-            .AppendPathSegment(id);
+        var url = await this.BuildRequestBaseAsync().ConfigureAwait(false);
+        url = url.AppendPathSegment(id);
 
         Console.WriteLine("Deleting player:");
         Console.WriteLine($"{url.Url}");
@@ -61,8 +61,8 @@ public class TTSPlayerClient : HttpClientBase
 
     public async Task<TTSWebPagePlayer> GetTTSPlayerAsync(Guid id)
     {
-        var url = BuildBackendPathVersionRequestBase()
-            .AppendPathSegment(id);
+        var url = await this.BuildRequestBaseAsync().ConfigureAwait(false);
+        url = url.AppendPathSegment(id);
 
         Console.WriteLine("Querying player:");
         Console.WriteLine($"{url.Url}");
@@ -77,7 +77,7 @@ public class TTSPlayerClient : HttpClientBase
 
     public async Task<PaginatedTTSWebPagePlayers> GetTTSPlayersAsync()
     {
-        var url = BuildBackendPathVersionRequestBase();
+        var url = await this.BuildRequestBaseAsync().ConfigureAwait(false);
 
         Console.WriteLine("Querying players:");
         Console.WriteLine($"{url.Url}");
@@ -117,8 +117,8 @@ public class TTSPlayerClient : HttpClientBase
             Formatting.None,
             CommonPublicConst.Json.WriterSettings);
 
-        var url = BuildBackendPathVersionRequestBase()
-            .AppendPathSegment("synthesis-metadata")
+        var url = await this.BuildRequestBaseAsync().ConfigureAwait(false);
+        url = url.AppendPathSegment("synthesis-metadata")
             .SetQueryParam("playerId", playerId.ToString())
             .SetQueryParam("sourceLocation", sourceLocation)
             .SetQueryParam("voice", voice)

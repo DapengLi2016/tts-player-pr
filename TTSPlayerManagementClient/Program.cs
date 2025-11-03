@@ -6,8 +6,10 @@
 namespace Microsoft.SpeechServices.TTSPlayerManagementClient;
 
 using CommandLine;
+using Microsoft.Speech.TTSPlayer.HttpClient;
 using Microsoft.SpeechServices.CommonLib;
 using Microsoft.SpeechServices.CommonLib.Public.Interface;
+using Microsoft.SpeechServices.VideoTranslation;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -43,7 +45,12 @@ public class Program
         try
         {
             var regionConfig = new TTSPlayerApiRegionConfig(baseOptions.Region);
-            return await AppHandler.DoRunAndReturnExitCodeAsync(baseOptions, regionConfig).ConfigureAwait(false);
+            var httpConfig = new TTSPlayerHttpClientConfig(
+                regionConfig: regionConfig,
+                subKey: baseOptions.SubscriptionKey,
+                customDomainName: baseOptions.CustomDomainName,
+                managedIdentityClientId: baseOptions.ManagedIdentityClientId);
+            return await AppHandler.DoRunAndReturnExitCodeAsync(baseOptions, httpConfig).ConfigureAwait(false);
         }
         catch (Exception e)
         {

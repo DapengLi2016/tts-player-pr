@@ -7,5 +7,7 @@ namespace Microsoft.SpeechServices.CommonLib.Public.Interface;
 
 public interface ITTSPlayerRegionConfig : IRegionConfig
 {
-    public string HostName { get; }
+    public string ManagementApiHostName { get; }
+
+    public string SynthesisApiHostName { get; }
 }

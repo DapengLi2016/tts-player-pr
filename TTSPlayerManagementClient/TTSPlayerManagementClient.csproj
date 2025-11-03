@@ -6,7 +6,7 @@
 		<RootNamespace>Microsoft.SpeechServices.TTSPlayerManagementClient</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="CommandLineParser.NS20" Version="2.3.1" />
+	  <PackageReference Include="CommandLineParser.NS20" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\TTSPlayerLib.Common\TTSPlayerLib.Common.csproj" />

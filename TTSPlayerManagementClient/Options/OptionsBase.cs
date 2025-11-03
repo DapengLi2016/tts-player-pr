@@ -6,12 +6,20 @@
 namespace Microsoft.SpeechServices.TTSPlayerManagementClient;
 
 using CommandLine;
+using Microsoft.SpeechServices.CommonLib;
+using System;
 
 public partial class OptionsBase
 {
-    [Option('r', "region", Required = true, HelpText = "Specify region")]
+    [Option('r', "region", Required = true, HelpText = CommonPublicConst.ArgumentDescription.Region)]
     public string Region { get; set; }
 
-    [Option('s', "subscriptionKey", Required = true, HelpText = "Specify speech resource key.")]
+    [Option('s', "subscriptionKey", Required = false, HelpText = CommonPublicConst.ArgumentDescription.SubscriptionKey)]
     public string SubscriptionKey { get; set; }
+
+    [Option('d', "customDomainName", Required = false, HelpText = CommonPublicConst.ArgumentDescription.CustomDomainName)]
+    public string CustomDomainName { get; set; }
+
+    [Option('m', "managedIdentityClientId", Required = false, HelpText = CommonPublicConst.ArgumentDescription.ManagedIdentityClientId)]
+    public Guid ManagedIdentityClientId { get; set; }
 }
