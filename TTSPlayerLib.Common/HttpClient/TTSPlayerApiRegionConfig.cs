@@ -17,7 +17,10 @@ public class TTSPlayerApiRegionConfig : ITTSPlayerRegionConfig
 
     public string RegionIdentifier { get; private set; }
 
-    public virtual string HostName => $"{this.RegionIdentifier}.customvoice.api.speech.microsoft.com";
+    // TODO: split API host and synthesis host
+    public virtual string SynthesisApiHostName => $"{this.RegionIdentifier}.customvoice.api.speech.microsoft.com";
 
-    public Uri EndpointUrl => new Uri($"https://{HostName}");
+    public virtual string ManagementApiHostName => $"{this.RegionIdentifier}.api.cognitive.microsoft.com";
+
+    public virtual Uri EndpointUrl => new Uri($"https://{ManagementApiHostName}");
 }

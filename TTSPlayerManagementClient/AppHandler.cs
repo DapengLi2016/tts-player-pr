@@ -21,13 +21,11 @@ using System.Threading.Tasks;
 
 public static class AppHandler
 {
-    public static async Task<int> DoRunAndReturnExitCodeAsync(OptionsBase options, ITTSPlayerRegionConfig regionConfig)
+    public static async Task<int> DoRunAndReturnExitCodeAsync(OptionsBase options, TTSPlayerHttpClientConfig httpClientConfig)
     {
         ArgumentNullException.ThrowIfNull(options);
-        var httpConfig = new TTSPlayerHttpClientConfig(
-            regionConfig: regionConfig,
-            subKey: options.SubscriptionKey);
-        var translationClient = new TTSPlayerClient(httpConfig);
+        ArgumentNullException.ThrowIfNull(httpClientConfig);
+        var translationClient = new TTSPlayerClient(httpClientConfig);
 
         switch (options)
         {
@@ -148,7 +146,7 @@ public static class AppHandler
 
                     await JavascriptDemoHelper.GenerateJavascriptClientDemoHelperAsync(
                         playerId: config.PlayerId,
-                        hostName: regionConfig.HostName,
+                        hostName: httpClientConfig.TTSPlayerRegionConfig.SynthesisApiHostName,
                         sourceLocation: config.ContentSourceLocation,
                         voice: config.VoiceName,
                         style: config.VoiceStyle,
@@ -186,7 +184,7 @@ public static class AppHandler
                         voice: config.VoiceName,
                         xpaths: config.HtmlXPathList,
                         style: config.VoiceStyle).ConfigureAwait(false);
-                    Console.WriteLine($"Succesfully sythesized metadata:");
+                    Console.WriteLine($"Succesfully synthesized metadata:");
                     Console.WriteLine(JsonConvert.SerializeObject(
                         synthesisMetadata,
                         Formatting.Indented,
